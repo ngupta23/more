@@ -1,8 +1,11 @@
 README.md
 setup.py
+more/__init__.py
 more.egg-info/PKG-INFO
 more.egg-info/SOURCES.txt
 more.egg-info/dependency_links.txt
 more.egg-info/top_level.txt
+more/pandas_helper/__init__.py
+more/scikit_helper/__init__.py
 pandas_helper/__init__.py
 scikit_helper/__init__.py

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="more",
-    version="0.0.1b2",
+    version="0.0.1b3",
     author="Nikhil Gupta",
     author_email="mywork.ng@gmail.com",
     description="A helper library for Pandas, Visualizations and Scikit-learn",
