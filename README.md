@@ -1,6 +1,6 @@
-# Helper Package
+# "More" Package
 
-This is a helper package for Pandas. 
+This is a helper package for a variety of functions as described in the Overview section below. 
 
 # Installation
 
