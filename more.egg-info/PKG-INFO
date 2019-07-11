@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: more
+Version: 0.0.1b2
+Summary: A helper library for Pandas, Visualizations and Scikit-learn
+Home-page: https://github.com/ngupta23/more
+Author: Nikhil Gupta
+Author-email: mywork.ng@gmail.com
+License: UNKNOWN
+Description: # Helper Package
+        
+        This is a helper package for Pandas. 
+        
+        # Write Details later
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown

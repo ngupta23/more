@@ -1,0 +1,8 @@
+README.md
+setup.py
+more.egg-info/PKG-INFO
+more.egg-info/SOURCES.txt
+more.egg-info/dependency_links.txt
+more.egg-info/top_level.txt
+pandas_helper/__init__.py
+scikit_helper/__init__.py
