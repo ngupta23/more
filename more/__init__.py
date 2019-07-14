@@ -1,1 +1,1 @@
-name = "Scikit Helper"
+name = "Package More"
