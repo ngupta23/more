@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: more
-Version: 0.0.1b4
+Version: 0.0.1b5
 Summary: A helper library for Pandas, Visualizations and Scikit-learn
 Home-page: https://github.com/ngupta23/more
 Author: Nikhil Gupta
@@ -12,7 +12,7 @@ Description: # "More" Package
         
         # Installation
         
-        pip install more==0.0.1b4
+        pip install more==0.0.1b5
         
         # Overview
         

@@ -4,7 +4,7 @@ This is a helper package for a variety of functions as described in the Overview
 
 # Installation
 
-pip install more==0.0.1b4
+pip install more==0.0.1b5
 
 # Overview
 
