@@ -7,6 +7,11 @@ more.egg-info/dependency_links.txt
 more.egg-info/top_level.txt
 more/pandas_helper/__init__.py
 more/scikit_helper/__init__.py
+more/scikit_helper/common.py
+more/scikit_helper/plot_classification.py
+more/scikit_helper/plot_hyper_validation_curves.py
+more/scikit_helper/plot_learning_curves.py
+more/scikit_helper/train_classifier.py
 more/viz_helper/__init__.py
 more/viz_helper/pca_helper.py
 more/viz_helper/plot_corr.py
