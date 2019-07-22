@@ -12,6 +12,8 @@ more/scikit_helper/plot_classification.py
 more/scikit_helper/plot_hyper_validation_curves.py
 more/scikit_helper/plot_learning_curves.py
 more/scikit_helper/train_classifier.py
+more/scikit_helper/cluster/GaussianMixture.py
+more/scikit_helper/cluster/__init__.py
 more/viz_helper/__init__.py
 more/viz_helper/pca_helper.py
 more/viz_helper/plot_corr.py

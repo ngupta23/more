@@ -21,7 +21,8 @@ def plot_parallel_coordinates(data, by, sample=True, frac=1.0, normalize=True
     else:
         df_sub = data.copy(deep=False)
     
-    df_sub[by] = df_sub[by] == 1 # converting categorical variable into number for plotting
+    # Commenting out since the by variable could have more than 2 levels              
+    #df_sub[by] = df_sub[by] == 1 # converting categorical variable into number for plotting
 
     
     # This plot is more meaningful when values are normalized

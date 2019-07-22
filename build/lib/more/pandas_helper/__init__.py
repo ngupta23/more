@@ -1,5 +1,4 @@
 import pandas as pd
-# import numpy as np 
 import warnings
 
 @pd.api.extensions.register_dataframe_accessor("helper")
@@ -42,23 +41,30 @@ class pandas_helper(object):
         the dataframe contains both numeric and categorical variables. 
         This extension provides more flexibility
         """
-        self.__print_dashes(45)
-        print("Summary Statictics for Categorical Variables")
-        self.__print_dashes(45)
-        print(self._obj[self.cat_features].describe())
-        
-        if (verbose):
-            self.level_counts()
+        if (self._cat_exists()):
+            self.__print_dashes(45)
+            print("Summary Statictics for Categorical Variables")
+            self.__print_dashes(45)
+            print(self._obj[self.cat_features].describe())
+            
+            if (verbose):
+                self.level_counts()
+        else:
+            warnings.warn("Data does not have any categorical columns")
+            
         
     def describe_numeric(self):
         """
         Prints numeric variable summaries for a Pandas Dataframe
         Same as default behavior in pd.DataFrame.describe()
         """
-        self.__print_dashes(40)
-        print("Summary Statictics for Numeric Variables")
-        self.__print_dashes(40)
-        print(self._obj[self.num_features].describe())
+        if (self._num_exists()):
+            self.__print_dashes(40)
+            print("Summary Statictics for Numeric Variables")
+            self.__print_dashes(40)
+            print(self._obj[self.num_features].describe())
+        else:
+            warnings.warn("Data does not have any numeric columns")
     
     def describe(self,verbose=False):
         """
@@ -116,6 +122,18 @@ class pandas_helper(object):
     def __set_all_feature_types(self):
         self.__set_cat_features()
         self.__set_num_features()
+        
+    def _cat_exists(self):
+        if (len(self.cat_features) > 0):
+            return True
+        else:
+            return False
+            
+    def _num_exists(self):
+        if (len(self.num_features) > 0):
+            return True
+        else:
+            return False
     
     def __print_dashes(self,num = 20):
         print("-"*num)    
