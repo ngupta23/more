@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 
 # this code has been manipulated from the source available on sklearn's website documentation

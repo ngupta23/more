@@ -4,7 +4,8 @@ This is a helper package for a variety of functions as described in the Overview
 
 # Installation
 
-pip install more==0.0.1b7
+* For standard installation > pip install more 
+* For installing a particular version >  pip install more==0.0.1b8
 
 # Overview
 
@@ -17,6 +18,10 @@ This is a helper package for a variety of functions
 Check out the  [examples](https://github.com/ngupta23/more/tree/master/examples) folder for details on usage
 
 # Version History
+
+## 0.0.1b8
+
+* Added Cluster Helpers for KMeans and Agglomerative Clustering
 
 ## 0.0.1b7
 
