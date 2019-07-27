@@ -22,6 +22,7 @@ more/viz_helper/pca_helper.py
 more/viz_helper/plot_corr.py
 more/viz_helper/plot_crosstab_barplot.py
 more/viz_helper/plot_data.py
+more/viz_helper/plot_heatmap.py
 more/viz_helper/plot_nulls.py
 more/viz_helper/plot_parallel_coordinates.py
 more/viz_helper/plot_scatter_one_vs_all.py

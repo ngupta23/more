@@ -7,3 +7,4 @@ from .plot_nulls import plot_nulls
 from .plot_data import plot_data
 from .plot_parallel_coordinates import plot_parallel_coordinates
 from .plot_similarity import plot_similarity
+from .plot_heatmap import heatmap, annotate_heatmap

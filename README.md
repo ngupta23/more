@@ -5,7 +5,7 @@ This is a helper package for a variety of functions as described in the Overview
 # Installation
 
 * For standard installation > pip install more 
-* For installing a particular version >  pip install more==0.0.1b8
+* For installing a particular version >  pip install more==0.0.1b10
 
 # Overview
 
@@ -18,6 +18,17 @@ This is a helper package for a variety of functions
 Check out the  [examples](https://github.com/ngupta23/more/tree/master/examples) folder for details on usage
 
 # Version History
+
+## 0.0.1b10 & 0.0.1b11
+
+* Updated Visualization Helper to add function to plot Heatmap
+* Updated BaseClusterWithN to allow plotting of heatmap showing how "cluster feature means" vary between clusters
+* 0.0.1b11 included a small bug fix in 0.0.1b10
+
+## 0.0.1b9
+
+* Updated KMeans and Agglomerative Cluster Helpers to include evaluate_by argument
+
 
 ## 0.0.1b8
 

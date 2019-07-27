@@ -108,6 +108,54 @@ class pandas_helper(object):
             self.__set_all_feature_types()
         else:
             return(self._obj.drop(cols_to_del, axis=1, inplace=inplace))
+            
+    def map_columns(self, mapping):
+        """
+        mapping: Dictionary of column name mapping
+        """
+        self._obj.rename(columns=mapping, inplace=True)
+                
+    def add_columns(self,names,value = ""):
+        """
+        previously called add_new_col
+        adds a new column with a single value for all rows.
+        names is a list of column names to be added         
+        """
+        if (type(names) == str):
+            self._obj[names] = value
+        else:
+            for name in names:
+                self._obj[name] = value
+            
+    def filter_change(self,filterCol,filterValue,changeCol,changeValue):
+        """
+        filterCol: Column name to filter by
+        filterValue: value to filter
+        changeCol: Column to change values
+        changeValue: Value to change to in the changeCol column 
+        """
+        self._obj.loc[self._obj[filterCol] == filterValue, [changeCol]] = changeValue
+        
+    def filter_delete(self,deleteCol,deleteValue):
+        self._obj = self._obj[self.data[deleteCol] != deleteValue]
+            
+    def concat_columns(self,newColName,column1,column2,concatBy = " "):
+        self._obj[newColName] = self._obj[column1] + concatBy + self._obj[column2] 
+        
+    def strip_columns(self,names):
+        self._obj[names] = self._obj[names].astype(str).map(lambda x: x.strip()) # convert to string as some are treated as float
+        
+    def title_case(self,names):
+        self._obj[names] = self._obj[names].astype(str).map(lambda x: x.title()) # convert to string as some are treated as float
+        
+    def upper_case(self,names):
+        self._obj[names] = self._obj[names].astype(str).map(lambda x: x.upper()) # convert to string as some are treated as float
+        
+    def select(self,names, inplace=False):
+        if inplace:
+            self._obj = self._obj[names]
+            
+        return(self._obj[names])
     
     #########################
     #### Private Methods ####
