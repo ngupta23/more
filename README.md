@@ -5,7 +5,7 @@ This is a helper package for a variety of functions as described in the Overview
 # Installation
 
 * For standard installation > pip install more 
-* For installing a particular version >  pip install more==0.0.1b10
+* For installing a particular version >  pip install more==0.0.1b12
 
 # Overview
 
@@ -18,6 +18,13 @@ This is a helper package for a variety of functions
 Check out the  [examples](https://github.com/ngupta23/more/tree/master/examples) folder for details on usage
 
 # Version History
+
+## 0.0.1b12
+
+* Add functions for plotting elbow curves. 
+    - Code modified from: https://github.com/reiinakano/scikit-plot
+    - Modifications made to support running for Hierarchical Clustering as well as support for plotting Silhoutte Score 
+* typo fixed in function name
 
 ## 0.0.1b10 & 0.0.1b11
 

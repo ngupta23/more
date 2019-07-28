@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: more
-Version: 0.0.1b11
+Version: 0.0.1b12
 Summary: A helper library for Pandas, Visualizations and Scikit-learn
 Home-page: https://github.com/ngupta23/more
 Author: Nikhil Gupta
@@ -13,7 +13,7 @@ Description: # "More" Package
         # Installation
         
         * For standard installation > pip install more 
-        * For installing a particular version >  pip install more==0.0.1b10
+        * For installing a particular version >  pip install more==0.0.1b12
         
         # Overview
         
@@ -26,6 +26,13 @@ Description: # "More" Package
         Check out the  [examples](https://github.com/ngupta23/more/tree/master/examples) folder for details on usage
         
         # Version History
+        
+        ## 0.0.1b12
+        
+        * Add functions for plotting elbow curves. 
+            - Code modified from: https://github.com/reiinakano/scikit-plot
+            - Modifications made to support running for Hierarchical Clustering as well as support for plotting Silhoutte Score 
+        * typo fixed in function name
         
         ## 0.0.1b10 & 0.0.1b11
         

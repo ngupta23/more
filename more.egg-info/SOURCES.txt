@@ -17,6 +17,7 @@ more/scikit_helper/cluster/BaseClusterWithN.py
 more/scikit_helper/cluster/GaussianMixture.py
 more/scikit_helper/cluster/KMeansHelper.py
 more/scikit_helper/cluster/__init__.py
+more/scikit_helper/cluster/plot_elbow_curve.py
 more/viz_helper/__init__.py
 more/viz_helper/pca_helper.py
 more/viz_helper/plot_corr.py

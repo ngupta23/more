@@ -5,9 +5,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn import metrics
 from more import viz_helper as vh
 from more import pandas_helper
+from .plot_elbow_curve import plot_elbow_curve
+
 
 class BaseClusterWithN:
-    def __init__(self, X, n_clusters, evaluate_by=None, scaled=True, random_state=101):
+    def __init__(self, X, n_clusters=2, evaluate_by=None, scaled=True, random_state=101):
         """
         Class to train and evaluate a Base Cluster Class with Number of Clusters Specified
         evaluate_by = column name to use to compare across the clusters eventually
@@ -35,11 +37,43 @@ class BaseClusterWithN:
         
         std_scl = StandardScaler()
         self.X_scaled = pd.DataFrame(std_scl.fit_transform(self.X), columns=self.columns)
-                    
-    def train(self, merge = True):
+    
+    def plot_elbow_curve(self , cluster_ranges, second_metric='time', n_jobs=1, figsize=(6,6)):
+        """
+        n_jobs: 
+                Different from the one in the object that is used for training.
+                This is because when calculating silhoute score can take up a lot of memory
+                so it may be advisable to run it without parallelism. But training can still
+                occur in parallel, hence this option to set n_jobs is provided
+        """
+              
+        if (self.scaled):
+            # This plot_elbow_curve is not the same as self.plot_elbow_curve. 
+            # It is coming from the plot_elbow_curve.py file
+            plot_elbow_curve(self.cluster_obj,X=self.X_scaled
+                             ,cluster_ranges=cluster_ranges, second_metric=second_metric 
+                             ,n_jobs=n_jobs,figsize=figsize)
+        else:
+            plot_elbow_curve(self.cluster_obj,X=self.X
+                             ,cluster_ranges=cluster_ranges, second_metric=second_metric 
+                             ,n_jobs=n_jobs,figsize=figsize)
+            
+        plt.show()
+                
+    def train(self, n_clusters=None, merge=True):
         """
         Train the clustering method
+        n_clusters: 
+            If specified, this will override the existing value. 
+            Useful when the value is determined after plotting elbow curve
+        merge (Default = True)
+            Should the data be merged with the labels. Recommended not to change
+            to False right now since that functionality has not been tested.
         """
+        if (n_clusters != None):
+            self.n_clusters = n_clusters
+            setattr(self.cluster_obj, 'n_clusters', self.n_clusters)
+            
         if (self.scaled):
             self.cluster_obj.fit(self.X_scaled)
         else:
@@ -110,7 +144,7 @@ class BaseClusterWithN:
             vh.plot_parallel_coordinates(data = self.merged_data, by = 'labels', normalize=False, frac=frac, figsize=figsize, xrot=xrot)
             
             
-    def plot_headmap(self, scale_rows=True, cmap='viridis', figsize=(6,6)
+    def plot_heatmap(self, scale_rows=True, cmap='viridis', figsize=(6,6)
                      , annot=False, valfmt="{x:.1f}", fontsize=12, fontweight="bold",textcolors=["white", "black"] ):
         """
         valfmt example: "{x:.1f}"

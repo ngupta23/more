@@ -9,6 +9,7 @@ class KMeansHelper(BaseClusterWithN):
         super().__init__(X=X, n_clusters=n_clusters, evaluate_by=evaluate_by, random_state=random_state)
         self.init = init
         self.n_jobs = n_jobs
+        
         self.cluster_obj = KMeans(n_clusters=self.n_clusters, init=self.init, random_state=self.random_state, n_jobs=self.n_jobs)
         
                     
