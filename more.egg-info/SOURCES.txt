@@ -5,6 +5,9 @@ more.egg-info/PKG-INFO
 more.egg-info/SOURCES.txt
 more.egg-info/dependency_links.txt
 more.egg-info/top_level.txt
+more/hyperopt_helper/HyperoptHelper.py
+more/hyperopt_helper/MyObjective.py
+more/hyperopt_helper/__init__.py
 more/pandas_helper/__init__.py
 more/scikit_helper/__init__.py
 more/scikit_helper/common.py

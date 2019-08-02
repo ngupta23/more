@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: more
-Version: 0.0.1b12
+Version: 0.0.1b13
 Summary: A helper library for Pandas, Visualizations and Scikit-learn
 Home-page: https://github.com/ngupta23/more
 Author: Nikhil Gupta
@@ -13,7 +13,7 @@ Description: # "More" Package
         # Installation
         
         * For standard installation > pip install more 
-        * For installing a particular version >  pip install more==0.0.1b12
+        * For installing a particular version >  pip install more==0.0.1b13
         
         # Overview
         
@@ -26,6 +26,13 @@ Description: # "More" Package
         Check out the  [examples](https://github.com/ngupta23/more/tree/master/examples) folder for details on usage
         
         # Version History
+        
+        ## 0.0.1b13
+        
+        * Added Hyperoptimization helper class (using hyperopt library)
+        * Added ability to do hyperparameter optimization in Cluster Helper Class
+        * Updated heatmap method name in cluster helper from plot_heatmap to plot_means_heatmap
+        
         
         ## 0.0.1b12
         

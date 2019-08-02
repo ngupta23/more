@@ -5,7 +5,7 @@ This is a helper package for a variety of functions as described in the Overview
 # Installation
 
 * For standard installation > pip install more 
-* For installing a particular version >  pip install more==0.0.1b12
+* For installing a particular version >  pip install more==0.0.1b13
 
 # Overview
 
@@ -18,6 +18,13 @@ This is a helper package for a variety of functions
 Check out the  [examples](https://github.com/ngupta23/more/tree/master/examples) folder for details on usage
 
 # Version History
+
+## 0.0.1b13
+
+* Added Hyperoptimization helper class (using hyperopt library)
+* Added ability to do hyperparameter optimization in Cluster Helper Class
+* Updated heatmap method name in cluster helper from plot_heatmap to plot_means_heatmap
+
 
 ## 0.0.1b12
 
