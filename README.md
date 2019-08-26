@@ -4,8 +4,14 @@ This is a helper package for a variety of functions as described in the Overview
 
 # Installation
 
-* For standard installation > pip install more 
-* For installing a particular version >  pip install more==0.0.1b13
+* For standard installation 
+```
+pip install more 
+```
+* For installing a particular version
+```
+pip install more==0.0.1b13
+```
 
 # Overview
 
