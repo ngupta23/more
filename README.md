@@ -10,7 +10,7 @@ pip install more
 ```
 * For installing a particular version
 ```
-pip install more==0.0.1b13
+pip install more==0.0.1b14
 ```
 
 # Overview
@@ -28,6 +28,7 @@ Check out the  [examples](https://github.com/ngupta23/more/tree/master/examples)
 ## 0.0.1b14
 
 * Added more helper functions for pandas
+* Made files PEP8 compliant
 
 ## 0.0.1b13
 
