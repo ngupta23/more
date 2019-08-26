@@ -3,15 +3,16 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 
-def heatmap(data, row_labels, col_labels, ax=None, scale_rows=False, xrot = 0,
+def heatmap(data, row_labels, col_labels, ax=None, scale_rows=False, xrot=0,
             cbar_kw={}, cbarlabel="", **kwargs):
     """
     Create a heatmap from a numpy array and two lists of labels.
-    Code taken from : https://matplotlib.org/3.1.1/gallery/images_contours_and_fields/image_annotated_heatmap.html#sphx-glr-gallery-images-contours-and-fields-image-annotated-heatmap-py
-    Addition made to 
-        Scale by each row individually -- useful when each row has its own scale
+    Code taken from:
+        https://matplotlib.org/3.1.1/gallery/images_contours_and_fields/image_annotated_heatmap.html#sphx-glr-gallery-images-contours-and-fields-image-annotated-heatmap-py
+    Addition made to
+        Scale by each row individually (useful when each row has its own scale)
         Allow for Xlabel rotation
-    
+
 
     Parameters
     ----------
@@ -22,12 +23,13 @@ def heatmap(data, row_labels, col_labels, ax=None, scale_rows=False, xrot = 0,
     col_labels
         A list or array of length M with the labels for the columns.
     ax
-        A `matplotlib.axes.Axes` instance to which the heatmap is plotted.  If
-        not provided, use current axes or create a new one.  Optional.
+        A `matplotlib.axes.Axes` instance to which the heatmap is plotted.
+        If not provided, use current axes or create a new one.  Optional.
     scale_rows:
         Useful when each row has its own scale
         Scaled each row (value - row min) / row range
-        This ensures that if the rows are representing items having different ranges, then the one with the max range does not overwhelm the plot
+        This ensures that if the rows are representing items having different
+        ranges, then the one with the max range does not overwhelm the plot
     xrot:
         Rotation of the X-labels
     cbar_kw
@@ -43,10 +45,11 @@ def heatmap(data, row_labels, col_labels, ax=None, scale_rows=False, xrot = 0,
 
     # If rows need to be scaled, perform the scaling now
     if(scale_rows):
-        data = (data - np.min(data,axis=1)[:,np.newaxis]) / np.ptp(data,axis=1)[:,np.newaxis]
+        data = (data - np.min(data, axis=1)
+                [:, np.newaxis]) / np.ptp(data, axis=1)[:, np.newaxis]
 
     # Plot the heatmap
-    im = ax.imshow(data, interpolation='none',aspect='auto', **kwargs)
+    im = ax.imshow(data, interpolation='none', aspect='auto', **kwargs)
 
     # Create colorbar
     cbar = ax.figure.colorbar(im, ax=ax, **cbar_kw)
@@ -60,10 +63,11 @@ def heatmap(data, row_labels, col_labels, ax=None, scale_rows=False, xrot = 0,
     ax.set_yticklabels(row_labels)
 
     # Let the horizontal axes labeling appear on top.
-    ax.tick_params(top=True, bottom=True,labeltop=True, labelbottom=True)
+    ax.tick_params(top=True, bottom=True, labeltop=True, labelbottom=True)
 
     # Rotate the tick labels and set their alignment.
-    plt.setp(ax.get_xticklabels(), rotation=xrot, ha="center",rotation_mode="anchor")
+    plt.setp(ax.get_xticklabels(), rotation=xrot,
+             ha="center", rotation_mode="anchor")
 
     # Turn spines off and create white grid.
     for edge, spine in ax.spines.items():
@@ -71,16 +75,22 @@ def heatmap(data, row_labels, col_labels, ax=None, scale_rows=False, xrot = 0,
 
     ax.set_xticks(np.arange(data.shape[1]+1)-.5, minor=True)
     ax.set_yticks(np.arange(data.shape[0]+1)-.5, minor=True)
-    #ax.grid(which="minor", color="w", linestyle='-', linewidth=1)
+    # ax.grid(which="minor", color="w", linestyle='-', linewidth=1)
     ax.tick_params(which="minor", bottom=False, left=False)
 
     return im, cbar
 
 
-def annotate_heatmap(im, data=None, valfmt="{x:.2f}", textcolors=["black", "white"], threshold=None, **textkw):
+def annotate_heatmap(im,
+                     data=None,
+                     valfmt="{x:.2f}",
+                     textcolors=["black", "white"],
+                     threshold=None,
+                     **textkw):
     """
     A function to annotate a heatmap.
-    Code taken from : https://matplotlib.org/3.1.1/gallery/images_contours_and_fields/image_annotated_heatmap.html#sphx-glr-gallery-images-contours-and-fields-image-annotated-heatmap-py
+    Code taken from:
+        https://matplotlib.org/3.1.1/gallery/images_contours_and_fields/image_annotated_heatmap.html#sphx-glr-gallery-images-contours-and-fields-image-annotated-heatmap-py
 
     Parameters
     ----------

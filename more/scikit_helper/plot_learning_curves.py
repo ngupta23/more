@@ -1,23 +1,33 @@
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 import math
 
 from sklearn.model_selection import learning_curve
 from .common import time_usage
 
-#########################
-#### Learning Curves ####
-#########################
+###################
+# Learning Curves #
+###################
 
 
-def plot_learning_curve(estimator, title_suffix, X, y, scoring="accuracy", ylim=None, cv=None,
-                         n_jobs=None, train_sizes=np.linspace(.2, 1.0, 5),verbose=1, ax = None):
+def plot_learning_curve(estimator,
+                        title_suffix,
+                        X,
+                        y,
+                        scoring="accuracy",
+                        ylim=None,
+                        cv=None,
+                        n_jobs=None,
+                        train_sizes=np.linspace(.2, 1.0, 5),
+                        verbose=1,
+                        ax=None):
     """
-    NOTE: Adopted from: https://scikit-learn.org/stable/auto_examples/model_selection/plot_learning_curve.html,
-    but allows plotting multiple metrics at a time when called from within plot_learning_curves (note the s at the end)
-    
+    NOTE:
+        Adopted from:
+            https://scikit-learn.org/stable/auto_examples/model_selection/plot_learning_curve.html
+            but allows plotting multiple metrics at a time when called from
+            within plot_learning_curves (note the s at the end)
+
     Generate a simple plot of the test and training learning curve.
 
     Parameters
@@ -70,64 +80,71 @@ def plot_learning_curve(estimator, title_suffix, X, y, scoring="accuracy", ylim=
         be big enough to contain at least one sample from each class.
         (default: np.linspace(0.1, 1.0, 5))
     """
-    
-    
-    train_sizes, train_scores, test_scores = learning_curve(estimator
-                                                            ,X,y
-                                                            ,cv=cv
-                                                            ,scoring=scoring
-                                                            ,n_jobs=n_jobs
-                                                            ,train_sizes=train_sizes
-                                                            ,verbose=verbose
-                                                           )
+
+    train_sizes, train_scores, test_scores = learning_curve(
+            estimator,
+            X,
+            y,
+            cv=cv,
+            scoring=scoring,
+            n_jobs=n_jobs,
+            train_sizes=train_sizes,
+            verbose=verbose
+            )
     train_scores_mean = np.mean(train_scores, axis=1)
     train_scores_std = np.std(train_scores, axis=1)
     test_scores_mean = np.mean(test_scores, axis=1)
     test_scores_std = np.std(test_scores, axis=1)
-    
 
     ax.fill_between(train_sizes, train_scores_mean - train_scores_std,
-                     train_scores_mean + train_scores_std, alpha=0.1,
-                     color="r")
+                    train_scores_mean + train_scores_std, alpha=0.1,
+                    color="r")
     ax.fill_between(train_sizes, test_scores_mean - test_scores_std,
-                     test_scores_mean + test_scores_std, alpha=0.1, color="g")
+                    test_scores_mean + test_scores_std, alpha=0.1, color="g")
     ax.plot(train_sizes, train_scores_mean, 'o-', color="r",
-             label="Training score")
+            label="Training score")
     ax.plot(train_sizes, test_scores_mean, 'o-', color="g",
-             label="Cross-validation score")
+            label="Cross-validation score")
 
-    ## Annotate Plots
+    # Annotate Plots
     ax.title.set_text("Learning Curve: " + title_suffix)
-    if (ylim == None):
+    if (ylim is None):
         ax.set_ylim(-0.1, 1.1)
     if ylim is not None:
         ax.set_ylim(*ylim)
-       
+
     ax.set_ylabel(title_suffix + " Score")
     ax.set_xlabel("Training examples")
     ax.grid(b=True)
     ax.legend(loc="best")
-    #return plt
+    # return plt
 
 
-def plot_learning_curves(estimator,X,y,scoring,cv=None,n_jobs=None,verbose=1,arFigsize=None):
+def plot_learning_curves(estimator,
+                         X,
+                         y,
+                         scoring, cv=None,
+                         n_jobs=None,
+                         verbose=1,
+                         arFigsize=None):
     num_rows = math.ceil(len(scoring)/2)
-    if (arFigsize == None):
-        arFigsize = (12,num_rows*4)
-    
+    if (arFigsize is None):
+        arFigsize = (12, num_rows*4)
+
     fig, axes = plt.subplots(num_rows, 2, figsize=arFigsize, squeeze=False)
     i = 0
     for scorer in scoring.keys():
         with time_usage(" Learning Curve | " + scorer):
-            plot_learning_curve(estimator=estimator
-                                ,title_suffix  = scorer.title()
-                                ,X=X, y=y
-                                ,scoring=scoring[scorer]
-                                ,cv=cv
-                                ,n_jobs=n_jobs
-                                ,verbose=verbose
-                                ,ax=axes[math.floor(i/2),i%2]
-                               )
+            plot_learning_curve(estimator=estimator,
+                                title_suffix=scorer.title(),
+                                X=X,
+                                y=y,
+                                scoring=scoring[scorer],
+                                cv=cv,
+                                n_jobs=n_jobs,
+                                verbose=verbose,
+                                ax=axes[math.floor(i/2), i % 2]
+                                )
             i = i+1
 
-   #plt.show()
+    # plt.show()

@@ -19,6 +19,10 @@ Check out the  [examples](https://github.com/ngupta23/more/tree/master/examples)
 
 # Version History
 
+## 0.0.1b14
+
+* Added more helper functions for pandas
+
 ## 0.0.1b13
 
 * Added Hyperoptimization helper class (using hyperopt library)
